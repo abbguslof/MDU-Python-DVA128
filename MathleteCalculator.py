@@ -31,6 +31,7 @@ while True:
         except ValueError:
             print("ERROR: invalid expression ' " + str(a) + " + " + str(b) + " '\n")
             input("press enter to continue...")
+            cls()
 
     elif op.lower() == "sub":
         print("_______________________")
@@ -51,6 +52,7 @@ while True:
         except ValueError:
             print("ERROR: invalid expression ' " + str(a) + " - " + str(b) + " '\n")
             input("press enter to continue...")
+            cls()
     elif op.lower() == "mul":
         print("_______________________")
         print("calculating 'c' for expression:\n")
@@ -70,6 +72,7 @@ while True:
         except ValueError:
             print("ERROR: invalid expression ' " + str(a) + " * " + str(b) + " '\n")
             input("press enter to continue...")
+            cls()
     elif op.lower() == "div":
         print("_______________________")
         print("calculating 'c' for expression:\n")
@@ -90,6 +93,7 @@ while True:
             print("ERROR: invalid expression ' " +
                   str(a) + " / " + str(b) + " '\n")
             input("press enter to continue...")
+            cls()
     elif op == "":
         cls()   
     else:
