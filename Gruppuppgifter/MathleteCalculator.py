@@ -94,10 +94,23 @@ while True:
                   str(a) + " / " + str(b) + " '\n")
             input("press enter to continue...")
             cls()
+        except ZeroDivisionError:
+            if a == 0:
+                print("ERROR: invalid expression ' " +
+                      str(a) + " / " + str(b) + " '\n")
+                input("press enter to continue...")
+                cls()
+            elif a < 0:
+                print("Result: " + str(a) + " / " + str(b) + " = -Infinity" + "\n")
+                input("Press enter to continue...")
+                cls()
+            elif a > 0:
+                print("Result: " + str(a) + " / " + str(b) + " = Infinity" + "\n")
+                input("Press enter to continue...")
+                cls()
     elif op == "":
         cls()   
     else:
         print("ERROR: unknown command " + "'" + op + "'" )
         input("Press enter to continue...")
         cls()
-
