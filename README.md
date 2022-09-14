@@ -14,11 +14,11 @@ Kopiera inte dessa svar då dem redan har användts för att lämnas in. Utan an
 
 ## Betyg / Godkända lösningar
 Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F) annars står A-E.
-### - Veckouppgifter###
+### - Veckouppgifter ###
 - [G] Vecka 1 | kommentar: Hotdogplanner borde vara lättare att läsa.
 - [G] Vecka 2 | ~~Kommentarer:~~
 
-### - Gruppuppgifter###
+### - Gruppuppgifter ###
 - [G] Case 1 | Miniräknare
 
 ## VIKTIGT
