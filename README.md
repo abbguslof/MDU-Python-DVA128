@@ -13,10 +13,11 @@ baldkao sjodijaois jdoiajfi jadigjagusidjfihdafjaosjdoiajsdiojijasoifjiusndigjai
 Kopiera inte dessa svar då dem redan har användts för att lämnas in. Utan använd ENDAST dessa för insperation och "facit".
 
 ## Betyg / Godkända lösningar
-
-- [A] asdasdf
-- [B] asdasfg
-- [C] gasdasfg
+Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F).
+### - Veckouppgifter - ###
+- [G] Vecka 1 (kommentar: Hotdogplanner borde vara lättare att läsa.)
+- [G] Vecka 2
+- [G] 
 
 ## VIKTIGT
 
