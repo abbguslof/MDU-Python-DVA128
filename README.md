@@ -13,11 +13,13 @@ baldkao sjodijaois jdoiajfi jadigjagusidjfihdafjaosjdoiajsdiojijasoifjiusndigjai
 Kopiera inte dessa svar då dem redan har användts för att lämnas in. Utan använd ENDAST dessa för insperation och "facit".
 
 ## Betyg / Godkända lösningar
-Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F).
+Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F) annars står A-E.
 ### - Veckouppgifter - ###
-- [G] Vecka 1 (kommentar: Hotdogplanner borde vara lättare att läsa.)
-- [G] Vecka 2
-- [G] 
+- [G] Vecka 1 | kommentar: Hotdogplanner borde vara lättare att läsa.
+- [G] Vecka 2 | ~~Kommentarer:~~
+
+## - Gruppuppgifter - ##
+- [G] Case 1 | Miniräknare
 
 ## VIKTIGT
 
