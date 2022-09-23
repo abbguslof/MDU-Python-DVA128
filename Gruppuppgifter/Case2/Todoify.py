@@ -1,9 +1,13 @@
 import os
 import time
+
+data = open('Gruppuppgifter/Case2/TodoDataBase.csv', 'w')
+# csv.writer(data).writerow()
+data.close()
+
 def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-# MENU
 print('\n',('#'*56),'\n')
 print('████████╗ ██████╗ ██████╗  ██████╗ ██╗███████╗██╗   ██╗')
 print('╚══██╔══╝██╔═══██╗██╔══██╗██╔═══██╗██║██╔════╝╚██╗ ██╔╝')
@@ -30,3 +34,4 @@ def menu():
 
 while True:
     menu()
+    break
