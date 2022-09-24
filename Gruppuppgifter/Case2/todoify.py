@@ -50,15 +50,15 @@ def todoSelection(val):
             print('ERROR: invalid index')
 
 def loadFile(filePath):
-        try:
-            with open(filePath, encoding='utf-8') as f:
-                i = 0
-                for row in f:
-                    loadedTodo = row.split(',')
-                    todo.append(loadedTodo[0])
-                    Completed.append(loadedTodo[1])
-        except FileNotFoundError:
-            print('-'*20 + '\nERROR: File is not found')
+    try:
+        with open(filePath, encoding='utf-8') as f:
+            i = 0
+            for row in f:
+                loadedTodo = row.split(',')
+                todo.append(loadedTodo[0])
+                Completed.append(loadedTodo[1])
+    except FileNotFoundError:
+        print('-'*20 + '\nERROR: File is not found')
 
 def saveFile():
     with open('Todo.csv', 'w') as f:
