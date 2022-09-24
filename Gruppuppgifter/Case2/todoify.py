@@ -59,6 +59,7 @@ def loadFile(filePath):
                     Completed.append(loadedTodo[1])
         except FileNotFoundError:
             print('-'*20 + '\nERROR: File is not found')
+
 def saveFile():
     with open('Todo.csv', 'w') as f:
         i = 0
