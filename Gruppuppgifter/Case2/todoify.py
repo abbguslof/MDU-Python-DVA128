@@ -3,7 +3,6 @@ import os
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
-
 todo, Completed, breakline = [], [], '\n'+'-'* 40
 
 def PrintTodo():
@@ -53,7 +52,6 @@ def todoSelection(val):
 def loadFile(filePath):
     try:
         with open(filePath, encoding='utf-8') as f:
-            i = 0
             for row in f:
                 loadedTodo = row.split(',')
                 todo.append(loadedTodo[0])
