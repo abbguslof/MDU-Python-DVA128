@@ -6,7 +6,7 @@ Completed = ["O","O","X"]
 def PrintTodo():
     i = 0
     for x in todo:
-        print(str(i) + " | " + "[" + Completed[i].rstrip() + "]" + todo[i])
+        print(str(i) + " | " + "[" + Completed[i].rstrip(\n) + "]" + todo[i])
         i += 1
 def todoSelection(val):
     if val == "list":
