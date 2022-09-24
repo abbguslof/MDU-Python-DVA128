@@ -3,7 +3,8 @@ import os
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
 
-todo, Completed = [], []
+
+todo, Completed, breakline = [], [], '\n'+'-'* 40
 
 def PrintTodo():
     i = 0
@@ -17,7 +18,7 @@ def todoSelection(val):
         for x in todo:
             print('['+ Completed[i].rstrip('\n') + ']' + todo[i])
             i += 1
-        print('-' * 40)
+        print(breakline)
     elif val == 'add':
         todo.append(input('Todo description > '))
         Completed.append('O')
@@ -28,10 +29,10 @@ def todoSelection(val):
             if 0 <= todoIndex and todoIndex <= len(Completed):
                 if Completed[todoIndex] == 'O':
                     Completed[todoIndex] = 'X'
-                    print('-'*40 +'\nUnchecked --> Checked ')
+                    print(breakline + '\nUnchecked --> Checked ')
                 else:
                     Completed[todoIndex] = 'O'
-                    print('-'*40 + '\nChecked --> Unchecked ')
+                    print(breakline + '\nChecked --> Unchecked ')
             else:
                 print('ERROR: invalid index')
         except ValueError:
@@ -61,7 +62,7 @@ def loadFile(filePath):
         print('-'*20 + '\nERROR: File is not found')
 
 def saveFile():
-    with open('Todo.csv', 'w') as f:
+    with open('Gruppuppgifter/Case2/Todo.csv', 'w') as f:
         i = 0
         for x in todo:
             f.write(todo[i] + ',' + Completed[i] + '\n')
@@ -70,23 +71,20 @@ def saveFile():
 while True:
     cls()
     print('*' * 40)
-    print('Todoify'.center(40, ' '))
-    print('-' * 40)
+    print('Todoify'.center(40, ' '), breakline)
     print('list   | List todos')
     print('add    | Add todo')
     print('check  | Check todo')
-    print('delete | Delete todo')
-    print('-' * 40)
+    print('delete | Delete todo', breakline)
     print('save   | Save todos to file')
-    print('load   | Load todos from file')
-    print('-' * 40)
+    print('load   | Load todos from file', breakline)
     select = input('Selection > ').lower()
     if select == 'list' or select == 'add' or select == 'check' or select == 'delete':
         todoSelection(select)
         input('press enter to continue...')
     elif select == 'save':
         saveFile()
-        print('-'*40 + '\n' +'Succesfully saved your file as Todo.csv\n')
+        print(breakline + '\n' + 'Succesfully saved your file as Todo.csv\n')
         input('press enter to continue...')
     elif select == 'load':
         loadFile(input('file name > '))
