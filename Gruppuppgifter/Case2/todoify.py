@@ -6,9 +6,9 @@ Completed = ["O","O","X"]
 def PrintTodo():
     i = 0
     for x in todo:
-        print(str(i) + " | " + "[" + Completed[i] + "]" + todo[i])
+        print(str(i) + " | " + "[" + Completed[i].rstrip() + "]" + todo[i])
         i += 1
-def todoChange(val):
+def todoSelection(val):
     if val == "list":
         i = 0
         for x in todo:
@@ -76,7 +76,7 @@ while True:
     print("-" * 40)
     select = input("Selection > ").lower()
     if select == "list" or select == "add" or select == "check" or select == "delete":
-        todoChange(select)
+        todoSelection(select)
         input("press enter to continue")
     elif select == "save":
         saveFile()
