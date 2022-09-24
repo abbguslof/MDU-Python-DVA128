@@ -1,9 +1,10 @@
 import os
+from select import select
 import time
+import csv
 
-data = open('Gruppuppgifter/Case2/TodoDataBase.csv', 'w')
-# csv.writer(data).writerow()
-data.close()
+database = open('Gruppuppgifter/Case2/TodoDataBase.csv', encoding='UTF8')
+csvdata = ['desc', 'checked']
 
 def cls():
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -16,10 +17,10 @@ print('   ██║   ██║   ██║██║  ██║██║   █�
 print('   ██║   ╚██████╔╝██████╔╝╚██████╔╝██║██║        ██║  ')
 print('   ╚═╝    ╚═════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝        ╚═╝  ')
 print('\n',('#'*56),'\n')
-time.sleep(1)
+time.sleep(0.5)
 cls()
 
-def menu():
+while True:
     cls()
     print('\n', ('-'*56), '\n')
     print('list | List todos')
@@ -30,8 +31,38 @@ def menu():
     print('save | Save todos to file')
     print('load | Todos from file')
     print('\n', ('-'*56), '\n')
-    return input('Selection > ')
+    select = input('Selection > ').lower()
 
-while True:
-    menu()
-    break
+    if select == 'list':
+        cls()
+        print('\n', ('-'*56), '\n')
+        print('All Todos')
+        print('\n', ('-'*56), '\n')
+        for line in csv.reader(database):
+            print(line)
+        input('press enter to contiune')
+
+    elif select == 'add':
+        cls()
+        print('\n', ('-'*56), '\n')
+        print('Adding a todo!')
+        print('\n', ('-'*56), '\n')
+        add = input('Todo description > ')
+        adddata = [add, '0']
+        csv.writer(database).writerow(adddata)
+        database.close()
+
+    elif select == 'check':
+        print('hejsan')
+
+    elif select == 'delete':
+        print('hejsan')
+
+    elif select == 'save':
+        print('hejsan')
+
+    elif select == 'load':
+        print('hejsan')
+
+    else:
+        print('hejsan')
