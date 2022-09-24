@@ -1,13 +1,16 @@
 import os
+
 def cls():
     os.system('cls' if os.name=='nt' else 'clear')
-todo = ["hasse","basse","lasse"]
-Completed = ["O","O","X"]
+
+todo, Completed = [], []
+
 def PrintTodo():
     i = 0
     for x in todo:
-        print(str(i) + " | " + "[" + Completed[i].rstrip(\n) + "]" + todo[i])
+        print(str(i) + " | " + "[" + Completed[i].rstrip('\n') + "]" + todo[i])
         i += 1
+
 def todoSelection(val):
     if val == "list":
         i = 0
@@ -45,6 +48,7 @@ def todoSelection(val):
                 print("ERROR: invalid index")
         except ValueError:
             print("ERROR: invalid index")
+
 def loadFile(filePath):
         try:
             with open(filePath, encoding="utf-8") as f:
@@ -61,6 +65,7 @@ def saveFile():
         for x in todo:
             f.write(todo[i] + "," + Completed[i] + "\n")
             i += 1
+
 while True:
     cls()
     print("*" * 40)
@@ -83,8 +88,7 @@ while True:
         print("-"*40 + "\n" +"Succesfully saved your file as Todo.csv\n")
         input("press enter to continue...")
     elif select == "load":
-        fPath = input("file name > ")
-        loadFile(fPath)
+        loadFile(input("file name > "))
         input("Press enter to continue...")
     else:
         print("ERROR: Unknown command")
