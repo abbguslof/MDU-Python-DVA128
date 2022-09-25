@@ -8,16 +8,15 @@ todo, Completed, breakline = [], [], '\n'+'-'* 40
 def PrintTodo():
     i = 0
     for x in todo:
-        print(str(i) + ' | ' + '[' + Completed[i].rstrip('\n') + ']' + todo[i])
+        print(str(i) + ' | ' + '[' + Completed[i] + '] ' + todo[i])
         i += 1
 
 def todoSelection(val):
     if val == 'list':
         i = 0
         for x in todo:
-            print('['+ Completed[i].rstrip('\n') + ']' + todo[i])
+            print('['+ Completed[i].rstrip('\n') + '] ' + todo[i])
             i += 1
-        print(breakline)
     elif val == 'add':
         todo.append(input('Todo description > '))
         Completed.append('O')
@@ -28,12 +27,12 @@ def todoSelection(val):
             if 0 <= todoIndex and todoIndex <= len(Completed):
                 if Completed[todoIndex] == 'O':
                     Completed[todoIndex] = 'X'
-                    print(breakline + '\nUnchecked --> Checked ')
+                    print(breakline.strip('\n') + '\nUnchecked --> Checked ')
                 else:
                     Completed[todoIndex] = 'O'
-                    print(breakline + '\nChecked --> Unchecked ')
+                    print(breakline.strip('\n') + '\nChecked --> Unchecked ')
             else:
-                print('ERROR: invalid index')
+                print('ERROR: Todo not existent')
         except ValueError:
             print('ERROR: invalid index')
     elif val == 'delete':
@@ -45,7 +44,7 @@ def todoSelection(val):
                 todo.pop(deleteTodo)
                 Completed.pop(deleteTodo)
             else: 
-                print('ERROR: invalid index')
+                print('ERROR: Todo not existant')
         except ValueError:
             print('ERROR: invalid index')
 
@@ -55,12 +54,12 @@ def loadFile(filePath):
             for row in f:
                 loadedTodo = row.split(',')
                 todo.append(loadedTodo[0])
-                Completed.append(loadedTodo[1])
+                Completed.append(loadedTodo[1].rstrip('\n'))
     except FileNotFoundError:
-        print('-'*20 + '\nERROR: File is not found')
+        print(breakline.strip('\n') + '\nERROR: File is not found')
 
 def saveFile():
-    with open('Gruppuppgifter/Case2/Todo.csv', 'w') as f:
+    with open('Gruppuppgifter/Case2/Todo.csv', 'w', encoding='utf-8') as f:
         i = 0
         for x in todo:
             f.write(todo[i] + ',' + Completed[i] + '\n')
@@ -79,14 +78,12 @@ while True:
     select = input('Selection > ').lower()
     if select == 'list' or select == 'add' or select == 'check' or select == 'delete':
         todoSelection(select)
-        input('press enter to continue...')
     elif select == 'save':
         saveFile()
-        print(breakline + '\n' + 'Succesfully saved your file as Todo.csv\n')
-        input('press enter to continue...')
+        print(breakline.strip('\n') + '\nSuccesfully saved your file as Todo.csv')
     elif select == 'load':
-        loadFile(input('file name > '))
-        input('Press enter to continue...')
+        loadFile(input('Relative Filepath > '))
     else:
         print('ERROR: Unknown command')
-        input('Press enter to continue...')
+    print(breakline.strip('\n'))
+    input('Press enter to continue...')
