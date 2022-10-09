@@ -21,17 +21,11 @@ def printMenu():
     print("| V | View artist profile")
     print("| E | Exit program")
     print(breakline)
-
 print(breakline)
 print("Artist Database".center(40))
 print(breakline)
-printMenu()
-first = True
 while True:
-    if first == False:
-        printMenu()
-    else:
-        first = False
+    printMenu()
     op = input("| Selection > ").lower().strip()
     if op in ["l", "v", "e"]:
         cls(True)
