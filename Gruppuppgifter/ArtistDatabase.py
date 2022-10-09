@@ -3,7 +3,6 @@ def cls(val):
     os.system('cls' if os.name=='nt' else 'clear')
     if val:
         print(breakline + "\n" + "Artist Database".center(40) + "\n" + breakline)
-cls(False)
 breakline = "-"*40
 def getArtists(id,key):
     a = requests.get("https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/" + str(id))
@@ -21,9 +20,7 @@ def printMenu():
     print("| V | View artist profile")
     print("| E | Exit program")
     print(breakline)
-print(breakline)
-print("Artist Database".center(40))
-print(breakline)
+cls(True)
 while True:
     printMenu()
     op = input("| Selection > ").lower().strip()
@@ -54,5 +51,5 @@ while True:
         break
     else:
         errorMessage(op, "Unknown command")
-
+        
 print("SUCCES: Script exited succesfully!")
