@@ -39,7 +39,7 @@ while True:
         for artist in artists:
             if artist['name'].lower() == selectedArtist:
                 cls(False)
-                print(BreakLine('*') + '\n' + artist['name'].capitalize().center(40) + '\n' + BreakLine('*'))
+                print(BreakLine('*') + '\n' + artist['name'].center(40) + '\n' + BreakLine('*'))
                 foundArtist = getArtists(artist['id'],'artist')
                 print('| Members:      ' + ', '.join(foundArtist['members']))
                 print('| Genres:       ' + ', '.join(foundArtist['genres']))
