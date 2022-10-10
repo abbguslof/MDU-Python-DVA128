@@ -43,7 +43,7 @@ while True:
                 foundArtist = getArtists(artist['id'],'artist')
                 print('| Members:      ' + ', '.join(foundArtist['members']))
                 print('| Genres:       ' + ', '.join(foundArtist['genres']))
-                print('| Years active: ' + ' '.join(foundArtist['years_active']))  
+                print('| Years active: ' + ' and '.join(foundArtist['years_active']))  
                 input(BreakLine('-'))
                 succesfullSearch = True
         if succesfullSearch == False:
