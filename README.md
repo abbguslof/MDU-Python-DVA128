@@ -17,9 +17,13 @@ Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F) 
 ### - Veckouppgifter ###
 - [G] Vecka 1 | kommentar: Hotdogplanner borde vara lättare att läsa.
 - [G] Vecka 2 | ~~Kommentarer:~~
+- [G] Vecka 3 | ~~Kommentarer:~~
+- [G] Vecka 4 | ~~Kommentarer:~~
+- [] Vecka 5 | *#EJ INLÄMNAD / GJORD#*
 
 ### - Gruppuppgifter ###
 - [G] Case 1 | Miniräknare
+- [G] Case 2 | Todoify
 
 ## VIKTIGT
 
