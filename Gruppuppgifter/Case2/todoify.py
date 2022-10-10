@@ -59,7 +59,7 @@ def loadFile(filePath):
         print(breakline.strip('\n') + '\nERROR: File is not found')
 
 def saveFile():
-    with open('Gruppuppgifter/Case2/Todo.csv', 'w', encoding='utf-8') as f:
+    with open('Todo.csv', 'w', encoding='utf-8') as f:
         i = 0
         for x in todo:
             f.write(todo[i] + ',' + Completed[i] + '\n')
