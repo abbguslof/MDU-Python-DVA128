@@ -10,7 +10,7 @@ baldkao sjodijaois jdoiajfi jadigjagusidjfihdafjaosjdoiajsdiojijasoifjiusndigjai
 
 ## Tips
 
-Kopiera inte dessa svar då dem redan har användts för att lämnas in. Utan använd ENDAST dessa för insperation och "facit".
+Kopiera inte dessa svar då dem redan har användts för att lämnas in. Ni kommer att bli underkända. Utan använd ENDAST dessa för insperation och "facit".
 
 ## Betyg / Godkända lösningar
 Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F) annars står A-E.
