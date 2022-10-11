@@ -35,7 +35,6 @@ while True:
     elif op == 'v':
         selectedArtist = input('| Artist name > ').lower()
         artists = getArtists('', 'artists')
-        succesfullSearch = False
         for artist in artists:
             if artist['name'].lower() == selectedArtist:
                 cls(False)
@@ -45,8 +44,8 @@ while True:
                 print('| Genres:       ' + ', '.join(foundArtist['genres']))
                 print('| Years active: ' + ' and '.join(foundArtist['years_active']))  
                 input(BreakLine('-'))
-                succesfullSearch = True
-        if succesfullSearch == False:
+                break
+        else:
             errorMessage(selectedArtist,'Artist not found')
     elif op == 'e':
         cls(False)
