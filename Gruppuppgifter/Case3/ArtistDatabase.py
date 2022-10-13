@@ -7,6 +7,7 @@ def cls(val):
 def BreakLine(character):
     return str(character)*40
 
+
 def getArtists(id,key):
     a = requests.get('https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/' + str(id))
     artists = json.loads(a.text)[key]

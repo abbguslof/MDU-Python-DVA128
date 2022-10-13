@@ -1,6 +1,11 @@
 import json, requests
 
 def list_artist():
+    """
+    Get all Arists
+
+    @return: List of artists
+    """
     a = requests.get(
         'https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/')
     artists, foundArtists = json.loads(a.text)['artists'], []
@@ -9,24 +14,27 @@ def list_artist():
     return foundArtists
 
 def get_artist(name):
-    a = requests.get(
-        'https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/')
-    artists = json.loads(a.text)['artists']
+    """
+    Get an artist by their name
+
+    @param Name of the Artist: String
+    @return: Artist dictionary
+    """
+    artists = requests.get(
+        'https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/').json()['artists']
     for artist in artists:
-        try:
             if ((artist['name'].lower()) == name.lower()):
-                foundArtist = get_artist_by_id(str(artist['id']))
-                print('\n' + artist['name'].center(40) + '\n' + '-'*40)
-                print('| Members:      ' + ', '.join(foundArtist['members']))
-                print('| Genres:       ' + ', '.join(foundArtist['genres']))
-                print('| Years active: ' + ' and '.join(foundArtist['years_active']))
-        except:
-            return (str(name) + ' is not a valid argument')
-    else:
-        return
+                _artist = get_artist_by_id(artist['id'])
+                _artist['name'] = artist['name']
+                return _artist
 
 def get_artist_by_id(id):
-    a = requests.get(
-        'https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/' + id)
-    artist = json.loads(a.text)['artist']
+    """
+    Get an artist by their ID
+
+    @param ID of the Artist: String
+    @return: 
+    """
+    artist = requests.get('https://5hyqtreww2.execute-api.eu-north-1.amazonaws.com/artists/' + id).json()['artist']
+    artist['id'] = id
     return artist
