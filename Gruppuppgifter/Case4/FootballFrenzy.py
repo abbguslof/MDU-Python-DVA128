@@ -67,6 +67,6 @@ while True:
     elif UserInput == 'exit' or UserInput == 'e':
         exit()
     else:
-        input('Wrong please die')
+        input('Unkown command')
     
     input(BreakLine('-') + '\n' + 'Press enter to contiune...')
