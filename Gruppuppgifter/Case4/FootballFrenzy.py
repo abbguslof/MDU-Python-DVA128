@@ -44,22 +44,21 @@ while True:
                 for y in range(len(GameDays)):
                     HomeTeam = GameDays[y]['score']['home']
                     AwayTeam = GameDays[y]['score']['away']
-                    for team in teams:
-                        if HomeTeam['team'] == team:
-                            if HomeTeam['goals'] > AwayTeam['goals']:
-                                scores[team]['Points'] += 3
-                                scores[team]['Wins'] += 1
-                                scores[AwayTeam['team']]['Loss'] += 1
-                            elif HomeTeam['goals'] < AwayTeam['goals']:
-                                scores[AwayTeam['team']]['Points'] += 3
-                                scores[AwayTeam['team']]['Wins'] += 1
-                                scores[team]['Loss'] += 1
-                            else:
-                                scores[AwayTeam['team']]['Draws'] += 1
-                                scores[team]['Draws'] += 1
-                                scores[AwayTeam['team']]['Points'] += 1
-                                scores[team]['Points'] += 1
+                    if HomeTeam['goals'] > AwayTeam['goals']:
+                        scores[HomeTeam['team']]['Points'] += 3
+                        scores[HomeTeam['team']]['Wins'] += 1
+                        scores[AwayTeam['team']]['Loss'] += 1
+                    elif HomeTeam['goals'] < AwayTeam['goals']:
+                        scores[AwayTeam['team']]['Points'] += 3
+                        scores[AwayTeam['team']]['Wins'] += 1
+                        scores[HomeTeam['team']]['Loss'] += 1
+                    else:
+                        scores[AwayTeam['team']]['Draws'] += 1
+                        scores[HomeTeam['team']]['Draws'] += 1
+                        scores[AwayTeam['team']]['Points'] += 1
+                        scores[HomeTeam['team']]['Points'] += 1
 
+            print('Teams - Wins - Draws - Loss - Points\n' + BreakLine('-'))
             for x in teams:
                 print('| ' + x + ' ' + str(scores[x]['Wins']) + ' ' + str(scores[x]['Draws']) + ' ' + str(scores[x]['Loss']) + ' ' + str(scores[x]['Points']))
                 
