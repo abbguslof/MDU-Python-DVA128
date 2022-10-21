@@ -46,9 +46,19 @@ while True:
                     AwayTeam = GameDays[y]['score']['away']
                     for team in teams:
                         if HomeTeam['team'] == team:
-                            scores[team]['Points'] += HomeTeam['goals']
-                        elif AwayTeam['team'] == team:
-                            scores[team]['Points'] += AwayTeam['goals']
+                            if HomeTeam['goals'] > AwayTeam['goals']:
+                                scores[team]['Points'] += 3
+                                scores[team]['Wins'] += 1
+                                scores[AwayTeam['team']]['Loss'] += 1
+                            elif HomeTeam['goals'] < AwayTeam['goals']:
+                                scores[AwayTeam['team']]['Points'] += 3
+                                scores[AwayTeam['team']]['Wins'] += 1
+                                scores[team]['Loss'] += 1
+                            else:
+                                scores[AwayTeam['team']]['Draws'] += 1
+                                scores[team]['Draws'] += 1
+                                scores[AwayTeam['team']]['Points'] += 1
+                                scores[team]['Points'] += 1
 
             for x in teams:
                 print('| ' + x + ' ' + str(scores[x]['Wins']) + ' ' + str(scores[x]['Draws']) + ' ' + str(scores[x]['Loss']) + ' ' + str(scores[x]['Points']))
