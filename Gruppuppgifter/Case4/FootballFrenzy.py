@@ -1,14 +1,14 @@
 import os, requests, json
 
 def BreakLine(character):
-    return str(character)*40
+    return str(character)*48
 
 def clear(bool):
     os.system('cls' if os.name == 'nt' else 'clear')
     if bool:
         print(BreakLine('*') + '\n' +
-              'Football Frenzy'.center(40) + '\n' + 'Stat Viewer'.center(40)
-               + '\n' + '1.0.0'.center(40) + '\n' + BreakLine('-') + '\n' + 
+              'Football Frenzy'.center(48) + '\n' + 'Stat Viewer'.center(48)
+               + '\n' + '1.0.0'.center(48) + '\n' + BreakLine('-') + '\n' + 
                '| List | List available seasons' + '\n' + '| View | View table for season'
                + '\n' + '| Exit | Exit program' + '\n' + BreakLine('-'))
 
@@ -36,11 +36,9 @@ while True:
             
             for x in teams:
                 scores[x] = {"Wins": 0, "Draws": 0, "Loss": 0, "Points": 0}
-                
-            gamedays = GetSeasons('/' + SelectedYear, 'gamedays')
-            
-            for x in range(len(gamedays)):
-                GameDays = GetSeasons('/' + SelectedYear + '/' + gamedays[x], 'games')
+                    
+            for x in range(len(GetSeasons('/' + SelectedYear, 'gamedays'))):
+                GameDays = GetSeasons('/' + SelectedYear + '/' + GetSeasons('/' + SelectedYear, 'gamedays')[x], 'games')
                 for y in range(len(GameDays)):
                     HomeTeam = GameDays[y]['score']['home']
                     AwayTeam = GameDays[y]['score']['away']
@@ -58,15 +56,17 @@ while True:
                         scores[AwayTeam['team']]['Points'] += 1
                         scores[HomeTeam['team']]['Points'] += 1
 
-            print('Teams - Wins - Draws - Loss - Points\n' + BreakLine('-'))
-            for x in teams:
-                print('| ' + x + ' ' + str(scores[x]['Wins']) + ' ' + str(scores[x]['Draws']) + ' ' + str(scores[x]['Loss']) + ' ' + str(scores[x]['Points']))
+            print(f"{'Team' : <23}{'Wins' : <6}{'Draws' : <6}{'Losses' : <7}{'Points'}")
+            SortedScores = dict(reversed(sorted(scores.items(), key=lambda x: (x[1]["Points"]))))
+                
+            for team in SortedScores:
+                print(f"{team : <23}{SortedScores[team]['Wins'] : <6}{SortedScores[team]['Draws'] : <6}{SortedScores[team]['Loss'] : <7}{SortedScores[team]['Points']}")
                 
         except json.decoder.JSONDecodeError:
-            input(BreakLine('-') + '\n' + 'Sorry But you have entered an inavalid year' + '\n' + 'Press enter to contiune...')
+            print('Sorry But you have entered an inavalid year')
     elif UserInput == 'exit' or UserInput == 'e':
         exit()
     else:
-        input('Unkown command')
+        print('Unkown command: ' + str(UserInput))
     
     input(BreakLine('-') + '\n' + 'Press enter to contiune...')
