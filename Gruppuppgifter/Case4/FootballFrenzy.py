@@ -29,10 +29,8 @@ while True:
     elif UserInput == 'view' or UserInput == 'v':
         try:
             SelectedYear = input('> Year ')
+            scores, teams = {}, GetSeasons('/' + SelectedYear, 'teams')
             print(BreakLine('-'))
-            
-            scores = {}
-            teams = GetSeasons('/' + SelectedYear, 'teams')
             
             for x in teams:
                 scores[x] = {"Wins": 0, "Draws": 0, "Loss": 0, "Points": 0}
@@ -40,27 +38,21 @@ while True:
             for x in range(len(GetSeasons('/' + SelectedYear, 'gamedays'))):
                 GameDays = GetSeasons('/' + SelectedYear + '/' + GetSeasons('/' + SelectedYear, 'gamedays')[x], 'games')
                 for y in range(len(GameDays)):
-                    HomeTeam = GameDays[y]['score']['home']
-                    AwayTeam = GameDays[y]['score']['away']
+                    HomeTeam, HomeT = GameDays[y]['score']['home'], scores[GameDays[y]['score']['home']['team']]
+                    AwayTeam, AwayT = GameDays[y]['score']['away'], scores[GameDays[y]['score']['away']['team']]
                     if HomeTeam['goals'] > AwayTeam['goals']:
-                        scores[HomeTeam['team']]['Points'] += 3
-                        scores[HomeTeam['team']]['Wins'] += 1
-                        scores[AwayTeam['team']]['Loss'] += 1
+                        HomeT['Points'], HomeT['Wins'], AwayT['Loss'] = HomeT['Points'] + 3, HomeT['Wins'] + 1, AwayT['Loss'] + 1
                     elif HomeTeam['goals'] < AwayTeam['goals']:
-                        scores[AwayTeam['team']]['Points'] += 3
-                        scores[AwayTeam['team']]['Wins'] += 1
-                        scores[HomeTeam['team']]['Loss'] += 1
+                        AwayT['Points'], AwayT['Wins'], HomeT['Loss'] = AwayT['Points'] + 3, AwayT['Wins'] + 1, HomeT['Loss'] + 1
                     else:
-                        scores[AwayTeam['team']]['Draws'] += 1
-                        scores[HomeTeam['team']]['Draws'] += 1
-                        scores[AwayTeam['team']]['Points'] += 1
-                        scores[HomeTeam['team']]['Points'] += 1
+                        AwayT['Draws'], HomeT['Draws'] = AwayT['Draws'] + 1, HomeT['Draws'] + 1
+                        AwayT['Points'], HomeT['Points'] = AwayT['Points'] + 1, HomeT['Points'] + 1
 
             print(f"{'Team' : <23}{'Wins' : <6}{'Draws' : <6}{'Losses' : <7}{'Points'}")
             SortedScores = dict(reversed(sorted(scores.items(), key=lambda x: (x[1]["Points"]))))
                 
             for team in SortedScores:
-                print(f"{team : <23}{SortedScores[team]['Wins'] : <6}{SortedScores[team]['Draws'] : <6}{SortedScores[team]['Loss'] : <7}{SortedScores[team]['Points']}")
+                print('| ' + f"{team : <23}{SortedScores[team]['Wins'] : <8}{SortedScores[team]['Draws'] : <7}{SortedScores[team]['Loss'] : <6}{SortedScores[team]['Points']}")
                 
         except json.decoder.JSONDecodeError:
             print('Sorry But you have entered an inavalid year')
