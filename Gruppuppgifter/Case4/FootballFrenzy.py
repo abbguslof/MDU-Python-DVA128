@@ -41,12 +41,18 @@ while True:
                     HomeTeam, HomeT = index['score']['home'], scores[index['score']['home']['team']]
                     AwayTeam, AwayT = index['score']['away'], scores[index['score']['away']['team']]
                     if HomeTeam['goals'] > AwayTeam['goals']:
-                        HomeT['Points'], HomeT['Wins'], AwayT['Loss'] = HomeT['Points'] + 3, HomeT['Wins'] + 1, AwayT['Loss'] + 1
+                        HomeT['Points'] += 3
+                        HomeT['Wins'] += 1
+                        AwayT['Loss'] += 1
                     elif HomeTeam['goals'] < AwayTeam['goals']:
-                        AwayT['Points'], AwayT['Wins'], HomeT['Loss'] = AwayT['Points'] + 3, AwayT['Wins'] + 1, HomeT['Loss'] + 1
+                        AwayT['Points'] += 3
+                        AwayT['Wins'] += 1
+                        HomeT['Loss'] += 1
                     else:
-                        AwayT['Draws'], HomeT['Draws'] = AwayT['Draws'] + 1, HomeT['Draws'] + 1
-                        AwayT['Points'], HomeT['Points'] = AwayT['Points'] + 1, HomeT['Points'] + 1
+                        AwayT['Draws'] += 1
+                        HomeT['Draws'] += 1
+                        AwayT['Points'] += 1
+                        HomeT['Points'] += 1
 
             print(f"{'Team' : <23}{'Wins' : <6}{'Draws' : <6}{'Losses' : <7}{'Points'}")
             SortedScores = dict(sorted(scores.items(), reverse=True, key=lambda x: (x[1]["Points"])))
