@@ -24,22 +24,22 @@ while True:
     print(BreakLine('-'))
     if UserInput == 'list' or UserInput == 'l':
         Seasons = GetInformation('', 'seasons')
-        for x in range(len(Seasons)):
-            print('| ' + Seasons[x])
+        for Year in Seasons:
+            print('| ' + Year)
     elif UserInput == 'view' or UserInput == 'v':
         try:
             SelectedYear = input('> Year ')
             scores, teams = {}, GetInformation('/' + SelectedYear, 'teams')
             print(BreakLine('-'))
             
-            for x in teams:
-                scores[x] = {"Wins": 0, "Draws": 0, "Loss": 0, "Points": 0}
-                    
-            for x in range(len(GetInformation('/' + SelectedYear, 'gamedays'))):
-                GameDays = GetInformation('/' + SelectedYear + '/' + GetInformation('/' + SelectedYear, 'gamedays')[x], 'games')
-                for y in range(len(GameDays)):
-                    HomeTeam, HomeT = GameDays[y]['score']['home'], scores[GameDays[y]['score']['home']['team']]
-                    AwayTeam, AwayT = GameDays[y]['score']['away'], scores[GameDays[y]['score']['away']['team']]
+            for team in teams:
+                scores[team] = {"Wins": 0, "Draws": 0, "Loss": 0, "Points": 0}
+
+            for gameday in GetInformation('/' + SelectedYear, 'gamedays'):
+                GameDays = GetInformation('/' + SelectedYear + '/' + gameday, 'games')
+                for index in GameDays:
+                    HomeTeam, HomeT = index['score']['home'], scores[index['score']['home']['team']]
+                    AwayTeam, AwayT = index['score']['away'], scores[index['score']['away']['team']]
                     if HomeTeam['goals'] > AwayTeam['goals']:
                         HomeT['Points'], HomeT['Wins'], AwayT['Loss'] = HomeT['Points'] + 3, HomeT['Wins'] + 1, AwayT['Loss'] + 1
                     elif HomeTeam['goals'] < AwayTeam['goals']:
