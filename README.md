@@ -19,8 +19,8 @@ Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F) 
 - [G] Vecka 2 | Kommentarer: Rad 14: what if numbersentered is 0?
 - [G] Vecka 3 | ~~Kommentarer:~~ 
 - [G] Vecka 4 | ~~Kommentarer:~~
-- [] Vecka 5 | *EJ INLÄMNAD / GJORD*
-- [] Vecka 6 | *EJ INLÄMNAD / GJORD*
+- [-] Vecka 5 | *EJ INLÄMNAD / GJORD*
+- [-] Vecka 6 | *EJ INLÄMNAD / GJORD*
 - [F] Vecka 7 | Kommentarer: Your program works well. Good job. However, you have not used type hints in your functions in the SDK.
 
 ### - Gruppuppgifter ###
