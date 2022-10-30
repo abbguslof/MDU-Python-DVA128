@@ -13,3 +13,5 @@ countries = {
 colors = input('colors > ').split()
 
 for country in countries:
+    if all(x in countries[country] for x in colors):
+        print(country)
