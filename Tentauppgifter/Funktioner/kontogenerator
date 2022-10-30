@@ -1,0 +1,24 @@
+usernames = {}
+def generate_username(forename, surname):
+    username = str(forename[0]+surname[0]+surname[len(surname)-1]).lower()
+    if username in usernames:
+        usernames[username] += 1
+    else: 
+        usernames[username] = 1
+    return (username+str(usernames[username]))
+
+users = [
+    'Anna Andersson',
+    'Lars Johansson',
+    'Eva Lindberg',
+    'Erik Lundberg',
+    'Per Svensson',
+    'Emma Lindberg',
+    'Petra Svensson',
+    'Marie Gustafsson'
+]
+
+for user in users:
+    forename, surname = user.split()
+    username = generate_username(forename, surname)
+    print(forename, surname, '-', username)
