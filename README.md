@@ -21,10 +21,13 @@ Majoriteten av upggifterna följer graderingen godkännt(G) / icke godkännt(F) 
 - [G] Vecka 4 | ~~Kommentarer:~~
 - [] Vecka 5 | *EJ INLÄMNAD / GJORD*
 - [] Vecka 6 | *EJ INLÄMNAD / GJORD*
+- [F] Vecka 7 | Kommentarer: Your program works well. Good job. However, you have not used type hints in your functions in the SDK.
 
 ### - Gruppuppgifter ###
 - [G] Case 1 | Miniräknare
 - [G] Case 2 | Todoify
+- [G] Case 3 | ArtistDatabase
+- [G] Case 4 | FootballFrenzy
 
 ## VIKTIGT
 
