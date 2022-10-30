@@ -1,4 +1,4 @@
-Count = 997
+Count = 0
 
 while Count < 999:
     plate = input('> ')
@@ -9,4 +9,3 @@ while Count < 999:
     except ValueError:
         print('ERROR, Plate isnt correct')
 print('Woah 1000 counted plates!')
-exit()
