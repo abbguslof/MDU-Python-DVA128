@@ -6,7 +6,7 @@
 
 ## Om kursen
 
-baldkao sjodijaois jdoiajfi jadigjagusidjfihdafjaosjdoiajsdiojijasoifjiusndigjaioskdojgio
+Kursen är intressant och lärorik men väldigt grundläggande.
 
 ## Tips
 
