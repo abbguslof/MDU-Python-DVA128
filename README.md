@@ -1,4 +1,4 @@
-  <h3 align="center">Spets MDU - python</h3>
+  <h3 align="center">Spets MDU - Python DVA128</h3>
 
   <p align="center">
     En samling av lösningar och uppgifter.
